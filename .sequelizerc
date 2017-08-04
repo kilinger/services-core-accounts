@@ -1,0 +1,10 @@
+var path = require('path')
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var settings = _interopRequireDefault(require('./lib/settings')).default;
+
+module.exports = {
+  'url': settings.DATABASE_URL,
+  'migrations-path': path.resolve('db', 'migrations')
+}

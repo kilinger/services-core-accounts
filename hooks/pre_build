@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+echo "=> Building the src at $(pwd)"
+
+docker run --privileged \
+ -e NPM_CONFIG_REGISTRY=http://npm.xxxx.com \
+ -e NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node \
+ -v $(pwd):/src \
+ index.xxxxx.com/library/node:4 \
+ sh -c "cd /src && npm install && npm start build"
+

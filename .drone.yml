@@ -1,0 +1,22 @@
+build:
+  image: index.xxxxx.com/library/node:4
+  environment:
+    - NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+    - NPM_CONFIG_REGISTRY=http://npm.xxxxx.com
+  commands:
+    - npm install --silent
+    - npm start lint
+    - npm start build
+
+deploy:
+  xxxxx:
+    image: index.xxxxx.com/plugins/drone-xxxxx
+    url: https://dashboard.xxxxx.com
+    username: meiye
+    password: $$xxxxx_PASS
+    project: accounts
+    tag: $${COMMIT:8}
+    when:
+      branch:
+        - develop
+        - master
